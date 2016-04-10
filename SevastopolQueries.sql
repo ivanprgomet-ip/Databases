@@ -25,11 +25,11 @@ INNER JOIN tblRank ON tblResident.RankID = tblRank.RankID
 WHERE tblRank.Salary>50000
 
 --SELECT people deceased from specific planet
-SELECT        tblResident.Firstname, tblOrigin.PlanetName, tblCauseOfAbscence.DeceasedDueTo
-FROM            tblCauseOfAbscence INNER JOIN
-                         tblDeceased ON tblCauseOfAbscence.CauseOfAbscenceID = tblDeceased.CauseOfAbsenceID INNER JOIN
-                         tblResident ON tblDeceased.ResidentID = tblResident.ResidentID INNER JOIN
-                         tblOrigin ON tblResident.OriginID = tblOrigin.OriginID
+SELECT tblResident.Firstname, tblOrigin.PlanetName, tblCauseOfAbscence.DeceasedDueTo
+FROM tblCauseOfAbscence 
+INNER JOIN tblDeceased ON tblCauseOfAbscence.CauseOfAbscenceID = tblDeceased.CauseOfAbsenceID 
+INNER JOIN tblResident ON tblDeceased.ResidentID = tblResident.ResidentID 
+INNER JOIN tblOrigin ON tblResident.OriginID = tblOrigin.OriginID
 WHERE PlanetName='earth'
 
 --list all dead that were born between two birthdates
